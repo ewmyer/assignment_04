@@ -46,7 +46,7 @@ if uploaded_file is not None:
 
 	unmatched_ids = payroll.loc[
 		payroll["pay_type"] == "unmatched", "employee_id"
-	].drop_duplicates().tolist()
+	].unique().tolist()
 	if unmatched_ids:
 		st.warning(f"Unmatched employee IDs: {', '.join(unmatched_ids)}")
 	else:
